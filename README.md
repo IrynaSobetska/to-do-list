@@ -4,14 +4,14 @@
 
 ## Table of contents
 
-- [General info](#general-info)
-- [Screenshots](#screenshots)
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Features](#features)
-- [Status](#status)
-- [Inspiration](#inspiration)
-- [Contact](#contact)
+- [Image gallery](#image-gallery)
+  - [Table of contents](#table-of-contents)
+  - [General info](#general-info)
+  - [Screenshots](#screenshots)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [Code Examples](#code-examples)
+  - [Status](#status)
 
 ## General info
 
@@ -20,7 +20,7 @@
 
 ## Screenshots
 
-![Example screenshot](./assets/screenShot.png)
+![Example screenshot](./assets/screenshot.png)
 
 ## Technologies
 
@@ -36,22 +36,26 @@ clone the repo and start using the stop watch.
 ## Code Examples
 
 ```js
+export const createTaskElement = (taskText) => {
+	const taskItem = document.createElement('li');
 
+	// Create a span to display the task text (hidden while editing)
+	const taskSpan = document.createElement('input');
+	taskSpan.value = taskText;
+
+	// Add a delete button to the task
+	const deleteButton = document.createElement('button');
+	deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+	deleteButton.className = 'clear-btn';
+	deleteButton.addEventListener('click', () => deleteTask(taskItem));
+
+	taskItem.appendChild(taskSpan);
+	taskItem.appendChild(deleteButton);
+
+	return taskItem;
+};
 ```
-
-## Features
-
-List of features ready and Todos for future development
-
--
--
--
-
-To-do list:
-
--
--
 
 ## Status
 
-Project is: _in progress_
+Project is: _done_
